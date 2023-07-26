@@ -1,0 +1,6 @@
+langchain
+llama-index 
+python-dotenv # for env vars
+coverage # for testing
+flake8 # for linting
+click # for cli

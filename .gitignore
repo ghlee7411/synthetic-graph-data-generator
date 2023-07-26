@@ -1,0 +1,6 @@
+data/
+temp/
+.env
+*.pyc
+.chroma/
+*.json
