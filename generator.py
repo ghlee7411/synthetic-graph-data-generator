@@ -61,9 +61,9 @@ def main(num_iterations: int):
 
         try:
             kg_meta_node_labels = chain.run(f"Summarize the node labels")
-            kg_meta_edge_labels = chain.run(f"Summarize the relationship labels")
+            # kg_meta_edge_labels = chain.run(f"Summarize the edge labels")
             print(kg_meta_node_labels)
-            print(kg_meta_edge_labels)
+            # print(kg_meta_edge_labels)
         except Exception as e:
             print(f"Failed to summarize prompt: {e}")
             continue
@@ -71,7 +71,6 @@ def main(num_iterations: int):
         try:
             graph_data_update_prompt = f"""
 Node labels:\n{kg_meta_node_labels}\n
-Relationship labels:\n{kg_meta_edge_labels}\n
 Instruction:\nSave the contents into the database (output format: Neo4j Query)\n
 Contents:\n{kg_result}
 """
@@ -84,7 +83,6 @@ Contents:\n{kg_result}
             # test
             graph_data_update_prompt = f"""
 Node labels:\n{kg_meta_node_labels}\n
-Relationship labels:\n{kg_meta_edge_labels}\n
 Instruction:\nSave the contents into the database (output format: Neo4j Query)\n
 Contents:\n{preprocess_result}
 """
